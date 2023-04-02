@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jupyter:
+    container_name: jupyter
+    image: jupyter/datascience-notebook:python-3.8.6
+    user: jovyan
+    ports:
+      - 3002:8888
+    volumes:
+      - ~/docker_mount/jupyter/home/:/home/jovyan/
+      - ~/docker_mount/jupyter/data/:/home/data/
+      - ~/.aws/:/home/jovyan/.aws/
+    environment:
+      CHOWN_HOME: 'yes'
+      CHOWN_HOME_OPTS: -R

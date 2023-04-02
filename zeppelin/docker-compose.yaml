@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  zeppelin:
+    container_name: zeppelin
+    image: apache/zeppelin:0.8.2
+    ports:
+      - 3003:8080
+    volumes:
+      - ~/docker_mount/zeppelin/home/:/home/home/
+      - ~/docker_mount/zeppelin/data/:/home/data/
+      - ~/.aws/:/home/jovyan/.aws/
+    environment:
+      ZEPPELIN_ADDR: 0.0.0.0
